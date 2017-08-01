@@ -1,0 +1,101 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 Courier;
+\f3\fswiss\fcharset0 ArialMT;\f4\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red255\green255\blue255;\red104\green26\blue29;
+\red235\green236\blue237;\red43\green49\blue55;\red244\green247\blue249;\red27\green29\blue31;\red255\green255\blue255;
+\red67\green66\blue71;\red51\green51\blue53;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c100000;\cssrgb\c49020\c15294\c15294;
+\cssrgb\c93725\c94118\c94510;\cssrgb\c21961\c25098\c27843;\cssrgb\c96471\c97647\c98039;\cssrgb\c14118\c15294\c16078;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c33333\c32941\c34902;\cssrgb\c26275\c25882\c27059;}
+\margl1440\margr1440\vieww28600\viewh16080\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+
+\fs26 SetUp\
+\
+Install following packages has been installed on python 
+\f1 \cf2 \cb3 \CocoaLigature0 versions/2.7
+\f0 \cf0 \cb1 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 \CocoaLigature0 \
+pip install json\cf4 \cb5 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+Pip install request\
+Pip install unittest\
+
+\f2 \cf6 \cb7 brew install node\
+\pard\pardeftab720\sl320\partightenfactor0
+\cf6 Ensure the node and npm are running by running these two commands\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 node -v\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f2 \cf6 \cb7 \expnd0\expndtw0\kerning0
+\CocoaLigature1 npm -v\
+\
+npm install localtunnel so slack is able to use our local computer\
+Pip install webapp2 install web server on local computer\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1 \cf8 \cb5 sudo pip install webob==1.1.1\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f3 \cf8 \cb9 sudo pip install paste --ignore-installed six provide a toolkit for WSGI \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 pip install webapp2 so the web server is running and listening on port 8080
+\f3 \cf8 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf8 \
+Configure slack\
+Create a new team\
+Customize slash command in your team\
+\
+Classes\
+1) WebHook.py 
+\f0 \cf10 \cb9 post message from external source to slack general channel\
+2) RandomCard.py Create a slash command /randomcard that  enable Slack users to interact with RandomCard app and generate a card with Face and Suit of the Card. The RandomCard class has three classes\
+\
+Card Class\
+a) Card class has two instance variable face and suit and three static class variable deck which stores card object, Face list that stores all the card number from 2 to Ace and Suit list that stores card suit \
+b) Card class one construct that construct the card object with face and suit \
+C) card class has three instance method getSuit, getFace and getString method\
+d) Card class has one static method getDeck that return list of card object\
+\
+Deck Class \
+A) Deck class  has one constructor that takes list of card objects\
+B) Deck class has on instance method shuffleCard that get the random number in range between 0, 51 and get the card object based on the random number\
+\
+Test Class extends webapp2.RequestHandle\
+A) has one instance method get method that create instance of deck object and get the list of card object\
+b) The webapp frameworks call the request handler the handler instance response member is initialize with empty response instance that calls the write method to write the card info to the browser\
+C) In the main method http server is listening on port 8080 \
+	\
+\
+Command Used\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs22 \cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 lt --port 8080 to open a tunnel and copy the url and paste the url in slash command configuration\
+lsof -i @localhost:8080 find the web server and node running\
+Screen shot is attached for the slash command config\
+\
+\
+
+\f0\fs32 \cf10 \cb9 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f3\fs30 \cf8 \cb9 \
+\
+\
+\
+\pard\pardeftab720\sl460\qc\partightenfactor0
+
+\f4\fs34 \cf11 \
+\pard\pardeftab720\sl380\partightenfactor0
+\cf11 \
+}
